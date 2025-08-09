@@ -80,10 +80,10 @@ if (NOT WIN32)
     add_subdirectory(source/frontends/qt)
   endif()
 
-  if (BUILD_SA2)
-    add_subdirectory(source/frontends/sdl)
-  endif()
+endif()
 
+if (BUILD_SA2)
+  add_subdirectory(source/frontends/sdl)
 endif()
 
 file(STRINGS resource/version.h VERSION_FILE LIMIT_COUNT 1)
