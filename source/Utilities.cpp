@@ -103,15 +103,15 @@ void LoadConfiguration(bool loadImages)
 	///////////////////////////////////////////////////////////////
 	// SmartPort over SLIP
 	auto& listener = GetCommandListener();
-	DWORD dwRegStartListener = 0;
+	uint32_t dwRegStartListener = 0;
 	bool bStartListener = listener.default_start_listener;
 
 	char tcAddress[16];
 	strncpy(tcAddress, listener.default_listener_address.data(), 15);
 	tcAddress[15] = '\0'; // ensure it's null terminated in worst case 111.111.111.111
 
-	DWORD dwPort = static_cast<DWORD>(listener.default_port);
-	DWORD dwResponseTimeout = static_cast<DWORD>(listener.default_response_timeout);
+	uint32_t dwPort = static_cast<uint32_t>(listener.default_port);
+	uint32_t dwResponseTimeout = static_cast<uint32_t>(listener.default_response_timeout);
 
 	if (REGLOAD(REGVALUE_START_SP_SLIP_LISTENER, &dwRegStartListener))
 	{
